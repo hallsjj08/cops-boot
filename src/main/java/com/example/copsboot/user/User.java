@@ -1,4 +1,4 @@
-package com.example.copsboot;
+package com.example.copsboot.user;
 
 import java.util.Set;
 import java.util.UUID;
