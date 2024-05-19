@@ -1,49 +1,38 @@
 package com.example.copsboot.user;
 
-import java.util.Set;
-
 import com.example.orm.jpa.AbstractEntity;
 
-import io.micrometer.common.lang.NonNull;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "copsboot_user")
 public class User extends AbstractEntity<UserId> {
 
-    private String email;
-    private String password;
-
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Enumerated(EnumType.STRING)
-    @NonNull
-    private Set<UserRole> roles;
+    private Email email;
+    private AuthServerId authServerId;
+    private MobileToken mobileToken;
 
     protected User() {
 
     }
 
-    public User(UserId id, String email, String password, Set<UserRole> roles) {
+    public User(UserId id, Email email, AuthServerId authServerId, MobileToken mobileToken) {
         super(id);
         this.email = email;
-        this.password = password;
-        this.roles = roles;
+        this.authServerId = authServerId;
+        this.mobileToken = mobileToken;
     }
 
-    public String getEmail() {
+    public Email getEmail() {
         return email;
     }
 
-    public String getPassword() {
-        return password;
+    public AuthServerId getAuthServerId() {
+        return authServerId;
     }
 
-    public Set<UserRole> getRoles() {
-        return roles;
+    public MobileToken getMobileToken() {
+        return mobileToken;
     }
 }

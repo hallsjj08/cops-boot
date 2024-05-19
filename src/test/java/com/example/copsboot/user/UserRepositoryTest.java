@@ -3,7 +3,6 @@ package com.example.copsboot.user;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.util.HashSet;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
@@ -31,12 +30,11 @@ public class UserRepositoryTest {
 
     @Test
     public void testStoreUser() {
-        HashSet<UserRole> roles = new HashSet<>();
-        roles.add(UserRole.OFFICER);
         User user = repository.save((new User(repository.nextId(),
-                                        "john.doe@test.com",
-                                        "bananananas",
-                                        roles)));
+                                        new Email("john.doe@test.com"),
+                                        new AuthServerId(UUID.randomUUID()),
+                                        new MobileToken("bananananas")
+                                        )));
 
         assertNotNull(user);
         assertEquals(repository.count(), 1L);

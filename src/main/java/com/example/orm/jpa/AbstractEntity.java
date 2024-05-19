@@ -2,6 +2,8 @@ package com.example.orm.jpa;
 
 import java.util.Objects;
 
+import com.example.copsboot.util.ArtifactForFramework;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.MappedSuperclass;
 

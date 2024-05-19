@@ -3,6 +3,8 @@ package com.example.orm.jpa;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.example.copsboot.util.ArtifactForFramework;
+
 import jakarta.persistence.MappedSuperclass;
 
 import static com.google.common.base.MoreObjects.toStringHelper;
